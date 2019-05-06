@@ -14,27 +14,26 @@ layui.define(['layer', 'laytpl', 'form', 'element','table'], function(exports){
   ,upload = layui.upload
   ,table = layui.table
   ,device = layui.device()
-
   ,DISABLED = 'layui-btn-disabled';
 
-  //阻止IE7以下访问
-  if(device.ie && device.ie < 8){
-    layer.alert('如果您非得使用 IE 浏览器访问本站点，那么请使用 IE8+');
-  }
- 
-  layui.focusInsert = function(obj, str){
-    var result, val = obj.value;
-    obj.focus();
-    if(document.selection){ //ie
-      result = document.selection.createRange();
-      document.selection.empty();
-      result.text = str;
-    } else {
-      result = [val.substring(0, obj.selectionStart), str, val.substr(obj.selectionEnd)];
-      obj.focus();
-      obj.value = result.join('');
-    }
-  };
+	//阻止IE7以下访问
+	if(device.ie && device.ie < 8){
+		layer.alert('如果您非得使用 IE 浏览器访问本站点，那么请使用 IE8+');
+	}
+	
+	layui.focusInsert = function(obj, str){
+		var result, val = obj.value;
+		obj.focus();
+		if(document.selection){ //ie
+			result = document.selection.createRange();
+			document.selection.empty();
+			result.text = str;
+		} else {
+			result = [val.substring(0, obj.selectionStart), str, val.substr(obj.selectionEnd)];
+			obj.focus();
+			obj.value = result.join('');
+		}
+	};
 
 	console.group("欢迎使用ZFAKA开源开卡程序");
 		console.log("github地址：https://github.com/zlkbdotnet/zfaka/");
